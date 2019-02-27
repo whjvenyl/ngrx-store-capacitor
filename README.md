@@ -1,6 +1,6 @@
 # ngrx-store-capacitor
 
-Simple syncing between @ngrx 4 and Capacitor Storage.
+Simple syncing between @ngrx 6 and Capacitor Storage.
 
 ## Dependencies
 
