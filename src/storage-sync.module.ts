@@ -8,43 +8,10 @@ import { of } from 'rxjs/internal/observable/of';
 import { fromPromise } from 'rxjs/internal-compatibility';
 import { catchError, map } from 'rxjs/operators';
 
+import { getNested, setNested } from './object.helper';
+
 const { Storage } = Plugins;
 const STORAGE_KEY = 'NSIS_APP_STATE';
-
-// get/setNested inspired by
-// https://github.com/mickhansen/dottie.js
-function getNested(obj: any, path: string): any {
-  if (obj !== null && path) {
-    // Recurse into the object.
-    const parts = path.split('.').reverse();
-    while (obj != null && parts.length) {
-      obj = obj[parts.pop()];
-    }
-  }
-  return obj;
-}
-
-function setNested(obj: any, path: string, value: any): any {
-  if (obj != null && path) {
-    const pieces = path.split('.');
-    const length = pieces.length;
-    let current = obj;
-    let piece;
-    let i;
-
-    for (i = 0; i < length; i++) {
-      piece = pieces[i];
-      if (i === length - 1) {
-        current[piece] = value;
-      } else if (!current[piece]) {
-        current[piece] = {};
-      }
-      current = current[piece];
-    }
-  }
-
-  return obj;
-}
 
 function fetchState(): Promise<void | {}> {
   return Storage.get({ key: STORAGE_KEY })
