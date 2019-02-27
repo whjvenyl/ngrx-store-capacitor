@@ -1,6 +1,6 @@
 {
   "name": "ngrx-store-capacitor",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple storage syncing between @ngrx/store and @capacitor.",
   "scripts": {
     "commit": "npm run prepublish && npm test",
