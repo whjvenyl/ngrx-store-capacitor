@@ -1,24 +1,25 @@
 {
   "compilerOptions": {
+    "noImplicitAny": true,
     "module": "es2015",
     "target": "es5",
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "outDir": "./dist/",
-    "rootDir": "./src",
-    "lib": [
-      "es2017",
-      "dom"
-    ]
+    "declaration": true,
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "stripInternal": true,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedParameters": false,
+    "lib": ["es7", "es2015", "dom"]
   },
   "files": [
+    "index.ts",
     "./src/index.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "bundles"
   ],
   "angularCompilerOptions": {
     "strictMetadataEmit": true,
